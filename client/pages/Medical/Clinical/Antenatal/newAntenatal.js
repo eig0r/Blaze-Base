@@ -22,6 +22,7 @@
              var date = new Date();
 
              var FolicAcid = template.find('input:checkbox[name=FolicAcid]:checked');
+             console.log(FolicAcid);
              var CalciumandVitaminD = template.find('input:checkbox[name=CalciumandVitaminD]:checked');
              var Iron = template.find('input:checkbox[name=Iron]:checked');
              var Zinc = template.find('input:checkbox[name=Zinc]:checked');
@@ -89,27 +90,6 @@
              var PreviousOutcomes = template.find('input:checkbox[name=PreviousOutcomes]:checked');
              var SocialSupport = template.find('input:checkbox[name=SocialSupport]:checked');
              var WorkplaceConcerns = template.find('input:checkbox[name=WorkplaceConcerns]:checked');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         Antenatal.insert({
               patientId:patientId,

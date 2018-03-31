@@ -1,34 +1,36 @@
-Meteor.subscribe('Photos');
-Meteor.subscribe('images');
+Meteor.subscribe('Lab');
+Meteor.subscribe('Images');
 Meteor.subscribe('PatientInfo');
 
 
-Template.photos.events({
+Template.lab_Notification.events({
   'change .uploadFileButton ':function (event, template) {
     FS.Utility.eachFile(event, function (file) {
       var newFile = new FS.File(file);
       Images.insert(newFile, function (error, result) {
         if (error) {
-
         }
         else {
           Session.set('imageId',result._id);
-
-
         }
       });
     });
   }
 });
 
+Template.lab_Notification.events({
+  'click .deleteItem': function(){
+    Lab.remove(this._id);
+  }
+});
 
-Template.photos.events({
+Template.lab_Notification.events({
   'submit .add-image-info ':function (event) {
      event.preventDefault();
       var imageId= Session.get('imageId');
       var Patienttest= Session.get('Patienttest');
 
-      Photos.insert({
+      Lab.insert({
 patientId:Patienttest,
         imageId:imageId,
         imageUrl:'http://192.168.1.8:3000/cfs/files/Images/'+imageId,
@@ -39,16 +41,23 @@ patientId:Patienttest,
 }
   });
 
-  Template.photos.helpers({
+  Template.lab_Notification.helpers({
     mdata: function() {
       var Patienttest= Session.get('Patienttest');
-      return Photos.find({patientId:Patienttest},{sort:{createdAt: -1}});
+      return Lab.find({patientId:Patienttest},{sort:{createdAt: -1}});
+    },
+    getlabReq: function() {
+      return LabReq.find({},{sort:{createdAt: -1}});
+    },
+    getlabReqpatient: function() {
+        var Patienttest= Session.get('Patienttest');
+      return LabReq.find({patientId:Patienttest},{sort:{createdAt: -1}});
     }
 
   });
 
 
-  Template.photos.helpers({
+  Template.lab_Notification.helpers({
     images: function() {
       return Images.findOne();
     }

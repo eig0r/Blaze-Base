@@ -12,6 +12,28 @@ Template.PatientDetails.helpers({
 
 
 });
+
+
+Template.PatientDetails.events({
+  'click #dismiss': function(event){
+
+
+var reservation_id=Session.get('reservation_id');
+console.log('dismiss');
+
+  Reservation.update({_id:reservation_id},
+    {$set:{status:'dismiss'}});
+
+       return false;
+
+}
+
+
+});
+
+
+
+
 Template.PatientDetails.events({
   'click #buttunUpdate': function(event){
 var patientid= Session.get('Patienttest');

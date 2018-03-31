@@ -31,7 +31,7 @@ Meteor.subscribe('PatientInfo');
         Report.insert({
   patientId:Patienttest,
           imageId:imageId,
-          imageUrl:'http://192.168.1.6:3000/cfs/files/Images/'+imageId,
+          imageUrl:'http://192.168.1.8:3000/cfs/files/Images/'+imageId,
           createdAt:new Date()
         });
 

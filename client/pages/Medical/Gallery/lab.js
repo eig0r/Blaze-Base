@@ -36,9 +36,9 @@ Template.lab.events({
       var Patienttest= Session.get('Patienttest');
 
       Lab.insert({
-patientId:Patienttest,
+        patientId:Patienttest,
         imageId:imageId,
-        imageUrl:'http://192.168.1.6:3000/cfs/files/Images/'+imageId,
+        imageUrl:'http://192.168.43.106:3000/cfs/files/Images/'+imageId,
         createdAt:new Date()
       });
 

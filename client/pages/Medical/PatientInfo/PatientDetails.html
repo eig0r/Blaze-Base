@@ -6,10 +6,45 @@
  <span class="pull-right"><a href="/patientReport/{{mdata._id}}" class="btn btn-defult"><i class="fa fa-plus-square" aria-hidden="true"></i> Report</a></span>
 </div>
 {{else}}
+    {{#if isInRole 'Attendant_surgent'}}
 <div class="col-xs-12">
- <span class="pull-right"><a href="/patientReport/{{mdata._id}}" class="btn btn-defult"><i class="fa fa-plus-square" aria-hidden="true"></i> Report</a></span>
+
+
+  {{#dropdownTrigger name="uniqueName" }}
+<button class="pull-right">Status</button>
+{{/dropdownTrigger}}
+
+{{#dropdown name="uniqueName"}}
+
+<button id="dismiss" class="btn btn-primary"><i class="fa fa-plus-square" aria-hidden="true"></i> dismiss</button>
+
+
+ <span ><a href="/patientReport/{{mdata._id}}" class="btn btn-primary"><i class="fa fa-plus-square" aria-hidden="true"></i> Consultation Req.</a></span>
+{{/dropdown}}
 </div>
 {{/if}}
+
+{{#if isInRole 'er_Docotr'}}
+<div class="col-xs-12">
+
+
+{{#dropdownTrigger name="uniqueName" }}
+<button class="pull-right">Status</button>
+{{/dropdownTrigger}}
+
+{{#dropdown name="uniqueName"}}
+
+<button id="dismiss" class="btn btn-primary"><i class="fa fa-plus-square" aria-hidden="true"></i> dismiss</button>
+
+
+<span ><a href="/patientReport/{{mdata._id}}" class="btn btn-primary"><i class="fa fa-plus-square" aria-hidden="true"></i> Consultation Req.</a></span>
+{{/dropdown}}
+</div>
+{{/if}}
+
+
+{{/if}}
+
 
 <nav class="side-nav">
   <ul>
@@ -19,6 +54,15 @@
     <li><a href="/gallery"><i class="fa fa-picture-o  " aria-hidden="true"></i>Gallery</a></li>
   </ul>
 </nav>
+{{#if isInRole 'Surgical_Nurse'}}
+<nav class="side-nav">
+  <ul>
+    <li><a href="/PatientDetails/{{mdata._id}}"><i class="fa fa-id-card-o" aria-hidden="true"></i>Info</a></li>
+    <li><a href="/mangment"><i class="fa fa-heartbeat" aria-hidden="true"></i>Mangment</a></li>
+  </ul>
+</nav>
+{{/if}}
+
 <form class="update-patient-info" >
 <div class="form-group">
 
@@ -45,9 +89,7 @@
 <input type="text" class="form-control" id="notes" name="notes" value="{{mdata.phone}}">
 </div>
 </form>
-<button  id="buttunUpdate" class="btn btn-primary">Update</button>
 
-<button type="submit"   class="btn btn-primary"  id="buttonDone" >Done</button>
 
 {{else}}
   <h1>Not Authorized</h1>
