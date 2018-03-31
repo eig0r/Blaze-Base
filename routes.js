@@ -15,6 +15,53 @@ FlowRouter.route('/dashboard', {
 });
 
 
+
+
+FlowRouter.route('/Patient_er_nurse/:id', {
+    name: 'Patient_er_nurse',
+    action() {
+        BlazeLayout.render("HomeLayout", {main: "Patient_er_nurse"});
+    }
+});
+
+
+
+FlowRouter.route('/lab_Request_Handeler/:id', {
+    name: 'lab_Request_Handeler',
+    action() {
+        BlazeLayout.render("HomeLayout", {main: "lab_Request_Handeler"});
+    }
+});
+
+
+
+FlowRouter.route('/dr_req', {
+    name: 'dr_req',
+    action() {
+        BlazeLayout.render("HomeLayout", {main: "dr_req"});
+    }
+});
+
+FlowRouter.route('/nurse_mangmentView/:id', {
+    name: 'nurse_mangmentView',
+    action() {
+        BlazeLayout.render("HomeLayout", {main: "nurse_mangmentView"});
+    }
+});
+FlowRouter.route('/lab_Notification', {
+    name: 'lab_Notification',
+    action() {
+        BlazeLayout.render("HomeLayout", {main: "lab_Notification"});
+    }
+});
+FlowRouter.route('/Nu_Notification', {
+    name: 'nu_Notification',
+    action() {
+        BlazeLayout.render("HomeLayout", {main: "Nu_Notification"});
+    }
+});
+
+
 // Staff Finance Mangment
 FlowRouter.route('/sallery', {
     name: 'sallery',
