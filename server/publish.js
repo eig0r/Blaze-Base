@@ -20,6 +20,48 @@ Meteor.publish('allUsers', function(){
 			});
 
 
+Meteor.publish('Signs', function(){
+if(Roles.userIsInRole(this.userId, 'normal-user')) {
+	return Signs.find({});
+}
+});
+			Meteor.publish('ER_Doctors', function(){
+			if(Roles.userIsInRole(this.userId, 'normal-user')) {
+				return ER_Doctors.find({});
+			}
+		 });
+			Meteor.publish('DR_Req', function(){
+			if(Roles.userIsInRole(this.userId, 'normal-user')) {
+				return DR_Req.find({});
+			}
+		 });
+
+			Meteor.publish('Nursing', function(){
+			if(Roles.userIsInRole(this.userId, 'normal-user')) {
+				return Nursing.find({});
+			}
+		 });
+
+
+Meteor.publish('Transfer', function(){
+if(Roles.userIsInRole(this.userId, 'normal-user')) {
+	return Transfer.find({});
+}
+});
+
+			Meteor.publish('Mangmentfollowup', function(){
+			if(Roles.userIsInRole(this.userId, 'normal-user')) {
+				return Mangmentfollowup.find({});
+			}
+		 });
+
+		 Meteor.publish('LabReq', function(){
+		 if(Roles.userIsInRole(this.userId, 'normal-user')) {
+			 return LabReq.find({});
+		 }
+		});
+
+
 			Meteor.publish('Deduction', function(){
 			if(Roles.userIsInRole(this.userId, 'normal-user')) {
 				return Deduction.find({});
