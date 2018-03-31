@@ -19,7 +19,7 @@ AccountsTemplates.addFields([
 		displayName: 'First Name',
 		required: true,
     	re: /(?=.*[a-z])(?=.*[A-Z])/,
-    	errStr: '1 lowercase and 1 uppercase letter reqiured'		
+    	errStr: '1 lowercase and 1 uppercase letter reqiured'
 	}, {
 		_id: 'profession',
 		type: 'select',
@@ -29,11 +29,20 @@ AccountsTemplates.addFields([
 				text:'Admin',
 				value: 'admin'
 			}, {
-				text: 'Doctor',
-				value: 'doctor'
-			}, {
 				text: 'Reservation',
 				value: 'reservation'
+			}, {
+				text: 'er_Docotr',
+				value: 'er_Docotr'
+			}, {
+				text: 'Attendant_surgent',
+				value: 'Attendant_surgent'
+			}, {
+				text: 'Surgical_Nurse',
+				value: 'Surgical_Nurse'
+			}, {
+				text: 'lab_tec',
+				value: 'lab_tec'
 			}
 		]
 	}
